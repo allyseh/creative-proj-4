@@ -70,6 +70,7 @@ const listSchema = new mongoose.Schema({
 // Create a model for lists
 const List = mongoose.model('List', listSchema);
 
+/*
 // Create a new person in the giftList
 app.post('/api/persons', async (req, res) => {
   const person = new Person({
@@ -129,5 +130,7 @@ app.put('/api/persons/:id', async (req, res) => {
     res.sendStatus(500);
   }
 }); 
+
+*/
 
 app.listen(3002, () => console.log('Server listening on port 3002'));
