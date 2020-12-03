@@ -6,13 +6,13 @@
     </div>
     <router-link to="/">
       <div class="logo">
-        <img src="/gift-logo.png">
+        <img src="/gift-logo.png" width = 50%>
       </div>
     </router-link>
-    <router-link to="/Person">
+    <router-link class="pagelink" to="/Person">
       People
     </router-link>
-    <router-link to="/Gift">
+    <router-link class="pagelink" to="/Gift">
       Gifts
     </router-link>
   </div>
@@ -41,6 +41,7 @@ body {
 /* Header */
 .header {
   display: flex;
+  align-items: center;
   padding: 10px 100px 0px 100px;
   background-color: #5BDEFF;
   color: #1C454F;
@@ -52,6 +53,11 @@ body {
 
 .title h1 {
   font-size: 30px;
+}
+
+.pagelink {
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
 .content {
