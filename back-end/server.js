@@ -30,6 +30,7 @@ const personSchema = new mongoose.Schema({
   age: Number, 
   relation: String,
   likes: String,
+  editDisplay: Boolean,
 });
 
 // Create a model for people
@@ -41,6 +42,7 @@ const giftSchema = new mongoose.Schema({
   desc: String,
   price: Number,
   img: String,   //path to img
+  editDisplay: Boolean,
 });
 
 // Create a model for items in the museum.
@@ -50,6 +52,7 @@ const Gift = mongoose.model('Gift', giftSchema);
 const entrySchema = new mongoose.Schema({
   receiver: personSchema,
   gifts: [giftSchema],
+  editDisplay: Boolean,
 });
 
 // Create a model for list entries
@@ -61,6 +64,7 @@ const listSchema = new mongoose.Schema({
   giftList: [entrySchema],
   budget: Number,
   totSpent: Number,
+  editDisplay: Boolean,
 });
 
 // Create a model for items in the museum.
