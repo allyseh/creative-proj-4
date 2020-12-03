@@ -49,6 +49,7 @@ body {
 
 .title {
   margin-top: 5px;
+  margin-left: 300px;
 }
 
 .title h1 {
