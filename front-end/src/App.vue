@@ -44,13 +44,14 @@ body {
   align-items: center;
   justify-content: space-around;
   padding: 10px 100px 0px 100px;
-  background-color: #5BDEFF;
+  background-color: #72FBA6;
   color: #1C454F;
 }
 
 .title {
   margin-top: 5px;
   margin-left: 350px;
+  margin-right: 30px;
 }
 
 .title h1 {
