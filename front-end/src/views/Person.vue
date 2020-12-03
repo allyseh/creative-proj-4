@@ -1,6 +1,6 @@
 <template>
-<div class="admin">
-  <h1>The Admin Page!</h1>
+<div class="people">
+  <h1>The People Page!</h1>
   <div class="heading">
     <div class="circle">1</div>
     <h2>Add an Item</h2>
