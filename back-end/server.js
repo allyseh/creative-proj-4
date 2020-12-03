@@ -67,59 +67,41 @@ const listSchema = new mongoose.Schema({
   editDisplay: Boolean,
 });
 
-// Create a model for items in the museum.
+// Create a model for lists
 const List = mongoose.model('List', listSchema);
 
-/* // Create a scheme for items in the museum: a title and a path to an image.
-const itemSchema = new mongoose.Schema({
-  title: String,
-  path: String,
-});
-
-// Create a model for items in the museum.
-const Item = mongoose.model('Item', itemSchema);
-
-// Upload a photo. Uses the multer middleware for the upload and then returns
-// the path where the photo is stored in the file system.
-app.post('/api/photos', upload.single('photo'), async (req, res) => {
-  // Just a safety check
-  if (!req.file) {
-    return res.sendStatus(400);
-  }
-  res.send({
-    path: "/images/" + req.file.filename
-  });
-});
-
-// Create a new item in the museum: takes a title and a path to an image.
-app.post('/api/items', async (req, res) => {
-  const item = new Item({
-    title: req.body.title,
-    path: req.body.path,
+// Create a new person in the giftList
+app.post('/api/persons', async (req, res) => {
+  const person = new Person({
+    name: req.body.name,
+    gender: req.body.gender,
+    age: req.body.age,
+    relation: req.body.relation,
+    likes: req.body.likes,
   });
   try {
-    await item.save();
-    res.send(item);
+    await person.save();
+    res.send(person);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
 });
 
-// Get a list of all of the items in the museum.
-app.get('/api/items', async (req, res) => {
+// Get a list of all of the people 
+app.get('/api/persons', async (req, res) => {
   try {
-    let items = await Item.find();
-    res.send(items);
+    let persons = await Person.find();
+    res.send(persons);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
 });
 
-app.delete('/api/items/:id', async (req, res) => {
+app.delete('/api/persons/:id', async (req, res) => {
   try {
-    await Item.deleteOne({
+    await Person.deleteOne({
       _id: req.params.id
     });
     res.sendStatus(200);
@@ -129,19 +111,23 @@ app.delete('/api/items/:id', async (req, res) => {
   }
 });
 
-app.put('/api/items/:id', async (req, res) => {
+app.put('/api/persons/:id', async (req, res) => {
   try {
-    let item = await Item.findOne({
+    let person = await Person.findOne({
       _id: req.params.id
     });
-    item.title = req.body.title;
-    await item.save();
-    res.send(item);
+    person.name = req.body.name;
+    person.gender = req.body.gender;
+    person.age = req.body.age;
+    person.relation = req.body.relation;
+    person.likes = req.body.likes;
+    await person.save();
+    res.send(person);
   } 
   catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
-}); */
+}); 
 
 app.listen(3002, () => console.log('Server listening on port 3002'));
