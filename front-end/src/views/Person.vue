@@ -59,7 +59,7 @@ export default {
       editing: null,
     }
   },
-  created() {
+  /*created() {
     this.getPersons();
   },
   methods: {
@@ -117,7 +117,7 @@ export default {
         console.log(error);
       }
     },
-  },
+  }, */
 }
 </script>
 
