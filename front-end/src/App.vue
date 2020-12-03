@@ -1,20 +1,26 @@
 <template>
 <div id="app">
   <div class="header">
+    <div class="title">
+      <h1>Christmas Gift Planner</h1>
+    </div>
     <router-link to="/">
       <div class="logo">
-        <img src="/ordinary.png">
+        <img src="/gift-logo.png">
       </div>
     </router-link>
-    <div class="title">
-      <h1>Museum of Ordinary Objects</h1>
-    </div>
+    <router-link to="/Person">
+      People
+    </router-link>
+    <router-link to="/Gift">
+      Gifts
+    </router-link>
   </div>
   <div class="content">
     <router-view />
   </div>
   <div class="footer">
-    <router-link to="/admin">Admin</router-link>
+    <a href="https://github.com/allyseh/creative-proj-4">Github Repository</a>
   </div>
 </div>
 </template>
