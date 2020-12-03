@@ -2,7 +2,8 @@
 <div class="people">
   <h1>My People</h1>
   <section class="person-list">
-    <div class="display-person" v-for="person in persons" :key="person.id" v-if="!person.editDisplay">
+    <div class="display-person" v-for="person in persons" :key="person.id"> 
+     <div v-if="!person.editDisplay">
       <h2>{{person.name}}</h2>
       <p><h3>Gender:</h3> {{person.gender}} <h3>Age:</h3> {{person.age}} <h3>Relation:</h3> {{person.relation}} </p>
       <p><h3>Likes:</h3> {{person.likes}} </p>
@@ -11,8 +12,8 @@
         <button @click="deletePerson(person)">Remove</button>
       </div>
      </div>
-    
-     <div class="edit" v-if="person.editDisplay">
+     
+     <div class="edit" v-else>
         <input v-model="editing.name">
         <p></p>
         <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
@@ -21,6 +22,7 @@
         <p></p>
         <button @click="editPerson(person)">Done</button>
     </div>
+   </div>
   </section>
   
   <div class="heading">
