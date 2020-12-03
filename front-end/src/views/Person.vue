@@ -1,7 +1,6 @@
 <template>
 <div class="people">
   <h1>My People</h1>
-  <section class="person-list">
     <div class="display-person" v-for="person in persons" :key="person.id"> 
      <div v-if="!person.editDisplay">
       <h2>{{person.name}}</h2>
