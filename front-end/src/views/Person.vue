@@ -1,46 +1,6 @@
 <template>
 <div class="people">
   <h1>My People</h1>
-  <div class="person-list" v-for="person in persons" :key="person.id"> 
-     <div class="display-person" v-if="!person.editDisplay">
-      <h2>{{person.name}}</h2>
-      <p><h3>Gender:</h3> {{person.gender}} <h3>Age:</h3> {{person.age}} <h3>Relation:</h3> {{person.relation}} </p>
-      <p><h3>Likes:</h3> {{person.likes}} </p>
-      <div class="buttons">
-        <button @click="toggleEdit(person)">Edit</button>
-        <button @click="deletePerson(person)">Remove</button>
-      </div>
-     </div>
-    
-     <div class="edit" v-else>
-        <input v-model="editing.name">
-        <p></p>
-        <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
-        <p></p>
-        <textarea v-model="editing.likes">
-        <p></p>
-        <button @click="editPerson(person)">Done</button>
-    </div>
-  </div>
-  
-  <div class="heading">
-    <h2>Add an Item</h2>
-  </div>
-  <div class="add">
-    <div class="form">
-      <input v-model="name" placeholder="Name">
-      <p></p>
-      <input v-model="gender" placeholder="Gender">
-      <p></p>
-      <input v-model="age" placeholder="Age">
-      <p></p>
-      <input v-model="relation" placeholder="Relation">
-      <p></p>
-      <textarea v-model="likes" placeholder="Likes">
-      <p></p>
-      <button @click="addPerson">Add</button>
-    </div>
-  </div>
 </div>
 </template>
 
@@ -50,56 +10,10 @@ export default {
   name: 'Person',
   data() {
     return {
-      name: "",
-      gender: "",
-      age: null,
-      relation: "",
-      likes: "",
-      persons: [],
-      editing: null,
+      
     }
   },
-  /*created() {
-    this.getPersons();
-  },
-  methods: {
-    async addPerson() {
-      try {
-        
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    async getPersons() {
-      try {
-        
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    async deleteItem(person) {
-      try {
-       
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    toggleEdit(person) {
-      person.editDisplay = !person.editDisplay;
-      if (person.editDisplay) 
-        editing = person;
-    }
-    async editPerson(person) {
-      try {
-        
-        });
-        this.getPersons();
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  }, */
+  
 }
 </script>
 
