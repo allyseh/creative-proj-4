@@ -5,7 +5,7 @@
     <div class="display-person" v-for="person in persons" :key="person.id" v-if="!person.editDisplay">
       <h2>{{person.name}}</h2>
       <p><h3>Gender:</h3> {{person.gender}} <h3>Age:</h3> {{person.age}} <h3>Relation:</h3> {{person.relation}} </p>
-      <p><h3>Likes:</h3> <<person.likes}} </p>
+      <p><h3>Likes:</h3> {{person.likes}} </p>
       <div class="buttons">
         <button @click="toggleEdit(person)">Edit</button>
         <button @click="deletePerson(person)">Remove</button>
