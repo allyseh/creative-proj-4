@@ -2,7 +2,7 @@
 <div class="people">
   <h1>My People</h1>
     <div class="display-person" v-for="person in persons" :key="person.id"> 
-     <div class="person-display" v-if="!person.editDisplay">
+     <div class="person-display">
       <h2>{{person.name}}</h2>
       <p><h3>Gender:</h3> {{person.gender}} <h3>Age:</h3> {{person.age}} <h3>Relation:</h3> {{person.relation}} </p>
       <p><h3>Likes:</h3> {{person.likes}} </p>
@@ -12,15 +12,6 @@
       </div>
      </div>
      
-     <div class="edit" v-else>
-        <input v-model="editing.name">
-        <p></p>
-        <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
-        <p></p>
-        <textarea v-model="editing.likes">
-        <p></p>
-        <button @click="editPerson(person)">Done</button>
-    </div>
    </div>
   
   <div class="heading">
@@ -65,34 +56,21 @@ export default {
   methods: {
     async addPerson() {
       try {
-        const formData = new FormData();
-        formData.append(this.file, this.file.name)
-        let r = await axios.post('/api/persons', {
-          name: this.name,
-          gender: this.gender,
-          age: this.age,
-          relation: this.relation,
-          likes: this.likes,
-          editDisplay: false,
-        });
+        
       } catch (error) {
         console.log(error);
       }
     },
     async getPersons() {
       try {
-        let response = await axios.get("/api/persons");
-        this.persons = response.data;
-        return true;
+        
       } catch (error) {
         console.log(error);
       }
     },
     async deleteItem(person) {
       try {
-        await axios.delete("/api/persons/" + person._id);
-        this.getPersons();
-        return true;
+       
       } catch (error) {
         console.log(error);
       }
@@ -104,12 +82,7 @@ export default {
     }
     async editPerson(person) {
       try {
-        await axios.put("/api/persons/" + person._id, {
-          name: this.editing.name,
-          gender: this.editing.gender,
-          age: this.editing.age,
-          relation: this.editing.relation,
-          likes: this.editing.likes,
+        
         });
         this.getPersons();
         return true;
