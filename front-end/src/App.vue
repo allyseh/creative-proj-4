@@ -50,7 +50,7 @@ body {
 
 .title {
   margin-top: 5px;
-  margin-left: 400px;
+  margin-left: 350px;
 }
 
 .title h1 {
