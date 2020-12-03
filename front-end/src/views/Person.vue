@@ -1,118 +1,117 @@
 <template>
 <div class="people">
-  <h1>The People Page!</h1>
+  <h1>My People</h1>
+  <section class="person-list">
+    <div class="display-person" v-for="person in persons" :key="person.id" v-if="!person.editDisplay">
+      <h2>{{person.name}}</h2>
+      <p><h3>Gender:</h3> {{person.gender}} <h3>Age:</h3> {{person.age}} <h3>Relation:</h3> {{person.relation}} </p>
+      <p><h3>Likes:</h3> <<person.likes}} </p>
+      <div class="buttons">
+        <button @click="toggleEdit(person)">Edit</button>
+        <button @click="deletePerson(person)">Remove</button>
+      </div>
+     </div>
+    
+     <div class="edit" v-if="person.editDisplay">
+        <input v-model="editing.name">
+        <p></p>
+        <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
+        <p></p>
+        <textarea v-model="editing.likes">
+        <p></p>
+        <button @click="editPerson(person)">Done</button>
+    </div>
+  </section>
+  
   <div class="heading">
-    <div class="circle">1</div>
     <h2>Add an Item</h2>
   </div>
   <div class="add">
     <div class="form">
-      <input v-model="title" placeholder="Title">
+      <input v-model="name" placeholder="Name">
       <p></p>
-      <input type="file" name="photo" @change="fileChanged">
-      <button @click="upload">Upload</button>
-    </div>
-    <div class="upload" v-if="addItem">
-      <h2>{{addItem.title}}</h2>
-      <img :src="addItem.path" />
+      <input v-model="gender" placeholder="Gender">
+      <p></p>
+      <input v-model="age" placeholder="Age">
+      <p></p>
+      <input v-model="relation" placeholder="Relation">
+      <p></p>
+      <textarea v-model="likes" placeholder="Likes">
+      <p></p>
+      <button @click="addPerson">Add</button>
     </div>
   </div>
-  <div class="heading">
-      <div class="circle">2</div>
-      <h2>Edit/Delete an Item</h2>
-    </div>
-    <div class="edit">
-      <div class="form">
-        <input v-model="findTitle" placeholder="Search">
-        <div class="suggestions" v-if="suggestions.length > 0">
-          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}}
-          </div>
-        </div>
-      </div>
-      <div class="upload" v-if="findItem">
-        <input v-model="findItem.title">
-        <p></p>
-        <img :src="findItem.path" />
-      </div>
-      <div class="actions" v-if="findItem">
-        <button @click="deleteItem(findItem)">Delete</button>
-        <button @click="editItem(findItem)">Edit</button>
-      </div>
-    </div>
 </div>
 </template>
 
 <script>
 import axios from 'axios';
 export default {
-  name: 'Admin',
+  name: 'Person',
   data() {
     return {
-      title: "",
-      file: null,
-      addItem: null,
-      items: [],
-      findTitle: "",
-      findItem: null,
-    }
-  },
-  computed: {
-    suggestions() {
-      let items = this.items.filter(item => item.title.toLowerCase().startsWith(this.findTitle.toLowerCase()));
-      return items.sort((a, b) => a.title > b.title);
+      name: "",
+      gender: "",
+      age: null,
+      relation: "",
+      likes: "",
+      persons: [],
+      editing: null,
     }
   },
   created() {
-    this.getItems();
+    this.getPersons();
   },
   methods: {
-    fileChanged(event) {
-      this.file = event.target.files[0]
-    },
-    async upload() {
+    async addPerson() {
       try {
         const formData = new FormData();
-        formData.append('photo', this.file, this.file.name)
-        let r1 = await axios.post('/api/photos', formData);
-        let r2 = await axios.post('/api/items', {
-          title: this.title,
-          path: r1.data.path
+        formData.append(this.file, this.file.name)
+        let r = await axios.post('/api/persons', {
+          name: this.name,
+          gender: this.gender,
+          age: this.age,
+          relation: this.relation,
+          likes: this.likes,
+          editDisplay: false,
         });
-        this.addItem = r2.data;
       } catch (error) {
         console.log(error);
       }
     },
-    async getItems() {
+    async getPersons() {
       try {
-        let response = await axios.get("/api/items");
-        this.items = response.data;
+        let response = await axios.get("/api/persons");
+        this.persons = response.data;
         return true;
       } catch (error) {
         console.log(error);
       }
     },
-    selectItem(item) {
-      this.findTitle = "";
-      this.findItem = item;
-    },
-    async deleteItem(item) {
+    async deleteItem(person) {
       try {
-        await axios.delete("/api/items/" + item._id);
-        this.findItem = null;
-        this.getItems();
+        await axios.delete("/api/persons/" + person._id);
+        this.getPersons();
         return true;
       } catch (error) {
         console.log(error);
       }
     },
-    async editItem(item) {
+    toggleEdit(person) {
+      person.editDisplay = !person.editDisplay;
+      if (person.editDisplay) 
+        editing = person;
+    }
+    async editPerson(person) {
       try {
-        await axios.put("/api/items/" + item._id, {
-          title: this.findItem.title,
+        await axios.put("/api/persons/" + person._id, {
+          name: this.editing.name,
+          gender: this.editing.gender,
+          age: this.editing.age,
+          relation: this.editing.relation,
+          likes: this.editing.likes,
         });
-        this.findItem = null;
-        this.getItems();
+        this.getPersons();
         return true;
       } catch (error) {
         console.log(error);
