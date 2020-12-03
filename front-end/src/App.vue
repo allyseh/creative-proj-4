@@ -49,7 +49,7 @@ body {
 
 .title {
   margin-top: 5px;
-  margin-left: 300px;
+  margin-left: 400px;
 }
 
 .title h1 {
