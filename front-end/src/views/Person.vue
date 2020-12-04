@@ -117,7 +117,7 @@ export default {
     toggleEdit(person) {
       console.log("before: " + person.editDisplay);
       await axios.put("/api/persons/" + person._id, {
-          editDisplay = !person.editDisplay;
+          editDisplay: !person.editDisplay;
       });
       console.log("after: " + person.editDisplay);
       if (person.editDisplay) 
