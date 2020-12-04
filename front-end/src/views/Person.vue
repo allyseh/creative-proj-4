@@ -5,7 +5,7 @@
   <div class="display-person" v-for="person in persons" :key="person.id"> 
     
     <div class="display" v-if="!person.editDisplay">  
-      <br>
+      <hr>
       <h2>{{person.name}}</h2>
       <div class="display-line">
         <h3> Gender: </h3> 
@@ -41,7 +41,7 @@
   </div>
   <div class="add">
     <div class="form">
-      <br>
+      <hr>
       <input v-model="name" placeholder="Name">
       <p></p>
       <input v-model="gender" placeholder="Gender">
