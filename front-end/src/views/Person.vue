@@ -124,7 +124,7 @@ export default {
           age: person.age,
           relation: person.relation,
           likes: person.likes,
-          editDisplay: !person.editDisplay,
+          editDisplay: true,
       });
       console.log("after: " + person.editDisplay);
       if (person.editDisplay) 
