@@ -109,5 +109,24 @@ app.delete('/api/persons/:id', async (req, res) => {
   }
 });
 
+app.put('/api/persons/:id', async (req, res) => {
+  try {
+    let person = await Person.findOne({
+      _id: req.params.id
+    });
+    person.name = req.body.name;
+    person.gender = req.body.gender;
+    person.age = req.body.age;
+    person.relation = req.body.relation;
+    person.likes = req.body.likes;
+    person.editDisplay = false;
+    await person.save();
+    res.send(person);
+  } 
+  catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
 
 app.listen(3002, () => console.log('Server listening on port 3002'));
