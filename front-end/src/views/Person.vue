@@ -141,6 +141,9 @@ export default {
 </script>
 
 <style scoped>
+.people {
+  font-family: Harrington;
+}
 .my-people {
   font-size: 32px;
   margin-bottom: 40px;
