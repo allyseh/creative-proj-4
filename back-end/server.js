@@ -67,4 +67,34 @@ const listSchema = new mongoose.Schema({
 const List = mongoose.model('List', listSchema);
 
 
+// Create a new person in the giftList
+app.post('/api/persons', async (req, res) => {
+  const person = new Person({
+    name: req.body.name,
+    gender: req.body.gender,
+    age: req.body.age,
+    relation: req.body.relation,
+    likes: req.body.likes,
+  });
+  try {
+    await person.save();
+    res.send(person);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+// Get a list of all of the people 
+app.get('/api/persons', async (req, res) => {
+  try {
+    let persons = await Person.find();
+    res.send(persons);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+
 app.listen(3002, () => console.log('Server listening on port 3002'));
