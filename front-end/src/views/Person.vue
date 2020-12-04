@@ -169,11 +169,12 @@ export default {
 .display-line {
   display: flex;
   align-items: center;
-  martin-left: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .display-line p {
-  margin: 0px 50px 0px 30px;
+  margin: 0px 35px 0px 15px;
 }
 
 .heading {
@@ -203,6 +204,7 @@ button {
 
 .buttons {
   margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .add {
