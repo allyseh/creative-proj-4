@@ -26,6 +26,7 @@
     </div>
     
     <div class="edit" v-else>
+      <hr>
       <input v-model="editing.name">
       <p></p>
       <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
@@ -156,7 +157,7 @@ hr {
   border: 1px solid #6BAC6A;
 }
 
-.display {
+.display, edit {
   margin-left: 20px;
   margin-top: 10px;
 }
