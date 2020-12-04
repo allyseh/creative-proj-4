@@ -153,7 +153,7 @@ export default {
 }
 
 hr {
-  background-color: #03722D;
+  border: 1px solid #03722D;
 }
 
 .display {
@@ -214,13 +214,14 @@ button {
 button {
   margin-top: 5px;
   margin-right: 10px;
-}
-
-.buttons button{
-  margin-left: 150px;
-  margin-bottom: 10px;
   text-size: 12px;
   color: #1C454F;
+}
+
+.buttons {
+  margin-left: 150px;
+  margin-bottom: 10px;
+  
 }
 
 .editB {
