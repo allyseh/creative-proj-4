@@ -116,17 +116,11 @@ app.put('/api/persons/:id', async (req, res) => {
       _id: req.params.id
     });
     person.name = req.body.name;
-    console.log(person.name);
     person.gender = req.body.gender;
-    console.log(person.gender);
     person.age = req.body.age;
-    console.log(person.age);
     person.relation = req.body.relation;
-    console.log(person.relation);
     person.likes = req.body.likes;
-    console.log(person.likes);
     person.editDisplay = req.body.editDisplay;
-    console.log(person.editDisplay);
     await person.save();
     res.send(person);
   } 
