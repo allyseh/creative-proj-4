@@ -41,16 +41,9 @@
     <hr>
     <h2>Add an Item</h2>
     <div class="form">
-      <input v-model="name" placeholder="Name">
-      <p></p>
-      <input v-model="gender" placeholder="Gender">
-      <p></p>
-      <input v-model="age" placeholder="Age">
-      <p></p>
-      <input v-model="relation" placeholder="Relation">
-      <p></p>
-      <textarea v-model="likes" placeholder="Likes"/>
-      <p></p>
+      <input v-model="name" placeholder="Name" class="form-line">
+      <input v-model="gender" placeholder="Gender" class="form-line">  <input v-model="age" placeholder="Age">  <input v-model="relation" placeholder="Relation">
+      <textarea v-model="likes" placeholder="Likes" class="form-line"/>
       <button @click="addPerson">Add</button>
     </div>
   </div>
@@ -246,7 +239,16 @@ button {
   margin-left: 20px;
 }
 
+.add h2 {
+  font-size: 28px;
+  margin-top: 35px;
+}
+
 .form {
   margin-right: 50px;
+}
+
+.form-line {
+  margin-bottom: 10px;
 }
 </style>
