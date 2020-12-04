@@ -23,6 +23,8 @@ const upload = multer({
   }
 });
 
+/* Schemas */
+
 // Create a scheme for people
 const personSchema = new mongoose.Schema({
   name: String,
@@ -67,6 +69,8 @@ const listSchema = new mongoose.Schema({
 // Create a model for lists
 const List = mongoose.model('List', listSchema);
 
+
+/* Person api calls */
 
 // Create a new person in the giftList
 app.post('/api/persons', async (req, res) => {
@@ -123,6 +127,67 @@ app.put('/api/persons/:id', async (req, res) => {
     person.editDisplay = req.body.editDisplay;
     await person.save();
     res.send(person);
+  } 
+  catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+
+/* Gift api calls */
+
+// Create a new gift in the giftList
+app.post('/api/gifts', async (req, res) => {
+  const gift = new Gift({
+    title: req.body.title,
+    desc: req.body.desc,
+    price: req.body.price,
+    editDisplay: req.body.editDisplay,
+  });
+  try {
+    await gift.save();
+    res.send(gift);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+// Get a list of all of the people 
+app.get('/api/gifts', async (req, res) => {
+  try {
+    let gifts = await Gift.find();
+    res.send(gifts);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+app.delete('/api/gifts/:id', async (req, res) => {
+  try {
+    await Gift.deleteOne({
+      _id: req.params.id
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+app.put('/api/gifts/:id', async (req, res) => {
+  try {
+    let gift = await Gift.findOne({
+      _id: req.params.id
+    });
+    gift.title = req.body.title;
+    gift.desc = req.body.desc;
+    gift.price = req.body.price;
+    gift.editDisplay = req.body.editDisplay;
+    await gift.save();
+    res.send(gift);
   } 
   catch (error) {
     console.log(error);
