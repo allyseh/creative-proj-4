@@ -118,6 +118,7 @@ export default {
       person.editDisplay = !person.editDisplay;
       if (person.editDisplay) 
         this.editing = person;
+      this.getPersons();
     },
     async editPerson(person) {
       try {
