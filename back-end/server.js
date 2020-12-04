@@ -109,6 +109,7 @@ app.delete('/api/persons/:id', async (req, res) => {
   }
 });
 
+//trigged by clicking 'Done'
 app.put('/api/persons/:id', async (req, res) => {
   try {
     let person = await Person.findOne({
@@ -120,6 +121,22 @@ app.put('/api/persons/:id', async (req, res) => {
     person.relation = req.body.relation;
     person.likes = req.body.likes;
     person.editDisplay = false;
+    await person.save();
+    res.send(person);
+  } 
+  catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+//trigged by clicking 'Edit'
+app.put('/api/persons/:id', async (req, res) => {
+  try {
+    let person = await Person.findOne({
+      _id: req.params.id
+    });
+    person.editDisplay = req.body.editDisplay;
     await person.save();
     res.send(person);
   } 
