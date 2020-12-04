@@ -130,12 +130,12 @@ export default {
 .people {
   font-family: 'Montserrat', sans-serif;
 }
-.my-people {
+.my-gifts {
   font-size: 32px;
   margin-bottom: 40px;
 }
 hr {
-  border: 1px solid #6BAC6A;
+  border: 1px solid #FD7A73;
 }
 .display {
   margin-left: 20px;
