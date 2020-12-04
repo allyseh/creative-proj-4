@@ -153,7 +153,7 @@ export default {
 }
 
 hr {
-  color: #03722D;
+  background-color: #03722D;
 }
 
 .display {
@@ -216,18 +216,19 @@ button {
   margin-right: 10px;
 }
 
-.buttons {
+.buttons button{
   margin-left: 150px;
   margin-bottom: 10px;
-  text-size: 6px;
+  text-size: 12px;
+  color: #1C454F;
 }
 
 .editB {
-  color: #72FBA6;
+  background-color: #72FBA6;
 }
 
 .removeB {
-  color: #F8463E;
+  background-color: #F8463E;
 }
 
 .add {
