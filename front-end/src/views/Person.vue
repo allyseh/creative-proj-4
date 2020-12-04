@@ -240,7 +240,7 @@ button {
 }
 
 .add h2 {
-  font-size: 28px;
+  font-size: 22px;
   margin-top: 35px;
 }
 
@@ -250,5 +250,10 @@ button {
 
 .form-line {
   margin-bottom: 15px;
+  martin-left: 20px;
+}
+
+.form button {
+  margin-top: 15px;
 }
 </style>
