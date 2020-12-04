@@ -120,7 +120,7 @@ export default {
       console.log("after: " + person.editDisplay);
       if (person.editDisplay) 
         this.editing = person;
-      //this.getPersons();
+      this.getPersons();
     },
     async editPerson(person) {
       try {
