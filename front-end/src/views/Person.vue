@@ -27,13 +27,13 @@
     
     <div class="edit" v-else>
       <hr>
-      <input v-model="editing.name">
+      <input class="edit-line" v-model="editing.name">
       <p></p>
-      <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
+      <input class="edit-line" v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
       <p></p>
-      <textarea v-model="editing.likes"/>
+      <textarea class="edit-line" v-model="editing.likes"/>
       <p></p>
-      <button @click="editPerson(person)">Done</button>
+      <button class="edit-line" @click="editPerson(person)">Done</button>
     </div>
   </div>
  
@@ -162,9 +162,13 @@ hr {
   margin-top: 10px;
 }
 
-edit {
-  margin-left: 40px;
+.edit {
+  margin-left: 20px;
   margin-top: 10px;
+}
+
+.edit-line {
+  margin-left: 20px;
 }
 
 .display h2 {
