@@ -149,7 +149,7 @@ export default {
 <style scoped>
 .my-people {
   font-size: 32px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .display {
@@ -160,7 +160,7 @@ export default {
 .display h2 {
   font-size: 28px;
   margin-bottom: 0;
-  margin-left: 2px;
+  margin-left: 8px;
 }
 
 .display h3 {
@@ -170,7 +170,9 @@ export default {
 .display-line {
   display: flex;
   align-items: center;
-  margin: 0px 0px 5px 20px;
+  margin: 0px 0px 0px 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .display-line p {
