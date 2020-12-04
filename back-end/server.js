@@ -76,6 +76,7 @@ app.post('/api/persons', async (req, res) => {
     age: req.body.age,
     relation: req.body.relation,
     likes: req.body.likes,
+    editDisplay: req.body.editDisplay,
   });
   try {
     await person.save();
