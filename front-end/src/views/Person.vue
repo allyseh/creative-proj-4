@@ -170,7 +170,7 @@ export default {
   display: flex;
   align-items: center;
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .display-line p {
