@@ -13,7 +13,7 @@
       </div>
       <div class="display-line">
         <h3> Price: </h3>
-        <p> {{gift.price}} </p>
+        <p> $ {{gift.price}} </p>
       </div>
       <div class="buttons">
         <button @click="toggleEdit(gift)" class="editB">Edit</button>
@@ -39,7 +39,7 @@
     <div class="form">
       <input v-model="title" placeholder="Title" class="form-line"> <br>
       <textarea v-model="desc" placeholder="Description" class="form-line"/> <br>
-      <input v-model="price" placeholder="Price" class="form-line"> <br>
+      <input v-model="price" placeholder="Price (just the number)" class="form-line"> <br>
       <button @click="addGift">Add</button>
     </div>
   </div>
@@ -149,7 +149,7 @@ hr {
   margin-left: 20px;
 }
 .display h2 {
-  font-size: 28px;
+  font-size: 22px;
   margin-bottom: 10;
   margin-left: 8px;
 }
