@@ -4,7 +4,8 @@
   <h1 class="my-people">My People</h1>
   <div class="display-person" v-for="person in persons" :key="person.id"> 
     
-    <div class="display" v-if="!person.editDisplay">   
+    <div class="display" v-if="!person.editDisplay">  
+      <br>
       <h2>{{person.name}}</h2>
       <div class="display-line">
         <h3> Gender: </h3> 
@@ -40,6 +41,7 @@
   </div>
   <div class="add">
     <div class="form">
+      <br>
       <input v-model="name" placeholder="Name">
       <p></p>
       <input v-model="gender" placeholder="Gender">
@@ -148,7 +150,11 @@ export default {
 
 <style scoped>
 .my-people {
-  font-size: 36px;
+  font-size: 32px;
+}
+
+.display {
+  margin-left: 20px;
 }
 
 .display h2 {
@@ -191,5 +197,6 @@ button {
 
 .form {
   margin-right: 50px;
+  margin-left: 20px;
 }
 </style>
