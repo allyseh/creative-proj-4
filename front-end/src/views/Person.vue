@@ -117,7 +117,7 @@ export default {
     async toggleEdit(person) {
       console.log("before: " + person.editDisplay);
       await axios.put("/api/persons/" + person._id, {
-          editDisplay: !person.editDisplay,
+          editDisplay: true,
       });
       console.log("after: " + person.editDisplay);
       if (person.editDisplay) 
@@ -132,6 +132,7 @@ export default {
           age: this.editing.age,
           relation: this.editing.relation,
           likes: this.editing.likes,
+          editDisplay: false,
         });
         this.getPersons();
         return true;
