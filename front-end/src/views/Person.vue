@@ -78,7 +78,7 @@ export default {
   methods: {
     async addPerson() {
       try {
-      await axios.post('/api/persons', {
+        await axios.post('/api/persons', {
           name: this.name,
           gender: this.gender,
           age: this.age,
@@ -86,6 +86,7 @@ export default {
           likes: this.likes,
           editDisplay: false,
         });
+        getPersons();
       } catch (error) {
         console.log(error);
       }
@@ -94,6 +95,15 @@ export default {
       try {
         let response = await axios.get("/api/persons");
         this.persons = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deletePerson(person) {
+      try {
+        await axios.delete("/api/persons/" + person._id);
+        this.getPersons();
         return true;
       } catch (error) {
         console.log(error);
@@ -120,21 +130,6 @@ export default {
   margin-left: 10px;
 }
 
-.add,
-.edit {
-  display: flex;
-}
-
-.circle {
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  padding: 8px;
-  background: #333;
-  color: #fff;
-  text-align: center
-}
-
 /* Form */
 input,
 textarea,
@@ -146,29 +141,5 @@ button {
 
 .form {
   margin-right: 50px;
-}
-
-/* Uploaded images */
-.upload h2 {
-  margin: 0px;
-}
-
-.upload img {
-  max-width: 300px;
-}
-
-/* Suggestions */
-.suggestions {
-  width: 200px;
-  border: 1px solid #ccc;
-}
-
-.suggestion {
-  min-height: 20px;
-}
-
-.suggestion:hover {
-  background-color: #5BDEFF;
-  color: #fff;
 }
 </style>
