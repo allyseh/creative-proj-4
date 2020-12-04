@@ -29,7 +29,7 @@
       <hr>
       <input class="edit-line" v-model="editing.name">
       <p></p>
-      <input class="edit-line" v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
+      <input class="edit-line" v-model="editing.gender">    <input v-model="editing.age">    <input v-model="editing.relation">
       <p></p>
       <textarea class="edit-line" v-model="editing.likes"/>
       <p></p>
@@ -241,7 +241,8 @@ button {
 
 .add h2 {
   font-size: 22px;
-  margin-top: 35px;
+  margin-top: 45px;
+  margin-left: 8px;
 }
 
 .form {
@@ -256,5 +257,6 @@ button {
 .form button {
   margin-top: 15px;
   margin-left: 20px;
+  background-color: #FCF97F;
 }
 </style>
