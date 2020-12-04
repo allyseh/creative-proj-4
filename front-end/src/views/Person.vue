@@ -117,7 +117,7 @@ export default {
     toggleEdit(person) {
       person.editDisplay = !person.editDisplay;
       if (person.editDisplay) 
-        editing = person;
+        this.editing = person;
     },
     async editPerson(person) {
       try {
