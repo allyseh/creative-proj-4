@@ -109,7 +109,6 @@ app.delete('/api/persons/:id', async (req, res) => {
   }
 });
 
-//trigged by clicking 'Done'
 app.put('/api/persons/:id', async (req, res) => {
   try {
     console.log("first");
@@ -121,7 +120,7 @@ app.put('/api/persons/:id', async (req, res) => {
     person.age = req.body.age;
     person.relation = req.body.relation;
     person.likes = req.body.likes;
-    person.editDisplay = false;
+    person.editDisplay = req.body.editDisplay;
     await person.save();
     res.send(person);
   } 
@@ -131,26 +130,5 @@ app.put('/api/persons/:id', async (req, res) => {
   }
 });
 
-//trigged by clicking 'Edit'
-app.put('/api/persons/:id', async (req, res) => {
-  try {
-    console.log("second");
-    let person = await Person.findOne({
-      _id: req.params.id
-    });
-    person.editDisplay = req.body.editDisplay;
-    person.name = person.name;
-    person.gender = person.gender;
-    person.age = person.age;
-    person.relation = person.relation;
-    person.likes = person.likes;
-    await person.save();
-    res.send(person);
-  } 
-  catch (error) {
-    console.log(error);
-    res.sendStatus(500);
-  }
-});
 
 app.listen(3002, () => console.log('Server listening on port 3002'));
