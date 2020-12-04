@@ -13,6 +13,8 @@
         <p> {{person.age}} </p>
         <h3> Relation: </h3>
         <p> {{person.relation}} </p>
+        <h3> Bool: </h3>
+        <p> {{person.editDisplay}} </p>
       </div>
       <div class="display-line">
         <h3> Likes: </h3>
