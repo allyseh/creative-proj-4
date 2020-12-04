@@ -118,7 +118,7 @@ export default {
       person.editDisplay = !person.editDisplay;
       if (person.editDisplay) 
         editing = person;
-    }
+    },
     async editPerson(person) {
       try {
         await axios.put("/api/persons/" + person._id, {
