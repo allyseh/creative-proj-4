@@ -159,7 +159,7 @@ export default {
 
 .display h2 {
   font-size: 28px;
-  margin-bottom: 0;
+  margin-bottom: 12;
   margin-left: 8px;
 }
 
@@ -184,7 +184,7 @@ export default {
   margin-top: 0px;
   margin-bottom: 0px;
   padding-top: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .heading {
@@ -215,6 +215,7 @@ button {
 .buttons {
   margin-left: 20px;
   margin-bottom: 10px;
+  text-size: 14px;
 }
 
 .add {
