@@ -78,14 +78,13 @@ export default {
   methods: {
     async addPerson() {
       try {
-      const formData = new FormData();
-      let response = await axios.post('/api/persons', {
+      await axios.post('/api/persons', {
           name: this.name,
           gender: this.gender,
           age: this.age,
           relation: this.relation,
           likes: this.likes,
-          editDisplay: "false",
+          editDisplay: false,
         });
       } catch (error) {
         console.log(error);
