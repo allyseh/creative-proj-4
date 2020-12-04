@@ -115,7 +115,9 @@ export default {
       }
     },
     toggleEdit(person) {
+      console.log("before: " + person.editDisplay);
       person.editDisplay = !person.editDisplay;
+      console.log("after: " + person.editDisplay);
       if (person.editDisplay) 
         this.editing = person;
       this.getPersons();
