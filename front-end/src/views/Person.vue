@@ -179,6 +179,13 @@ export default {
   margin: 0px 35px 0px 15px;
 }
 
+.display-line h3, p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .heading {
   display: flex;
   margin-bottom: 20px;
