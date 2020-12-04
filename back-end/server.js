@@ -30,6 +30,7 @@ const personSchema = new mongoose.Schema({
   age: Number, 
   relation: String,
   likes: String,
+  editDisplay: Boolean,
 });
 
 // Create a model for people
