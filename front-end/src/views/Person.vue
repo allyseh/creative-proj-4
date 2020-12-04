@@ -157,8 +157,13 @@ hr {
   border: 1px solid #6BAC6A;
 }
 
-.display, edit {
+.display {
   margin-left: 20px;
+  margin-top: 10px;
+}
+
+edit {
+  margin-left: 40px;
   margin-top: 10px;
 }
 
@@ -213,7 +218,7 @@ button {
 }
 
 button {
-  margin-top: 5px;
+  margin-top: 10px;
   margin-right: 10px;
   text-size: 12px;
   color: #1C454F;
