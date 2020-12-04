@@ -95,6 +95,11 @@ export default {
           likes: this.likes,
           editDisplay: false,
         });
+        this.name = "";
+        this.gender = "";
+        this.relation = "";
+        this.age = null;
+        this.likes = "";
         this.getPersons();
       } catch (error) {
         console.log(error);
