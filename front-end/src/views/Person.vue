@@ -154,6 +154,7 @@ export default {
 
 .display {
   margin-left: 20px;
+  margin-top: 30px;
 }
 
 .display h2 {
@@ -171,7 +172,7 @@ export default {
 }
 
 .display-line p {
-  margin: 20px 30px 0px 10px;
+  margin: 0px 50px 0px 30px;
 }
 
 .heading {
