@@ -162,8 +162,7 @@ export default {
 .display-line {
   display: flex;
   align-items: center;
-  margin-right: 10px;
-  margin-left: 20px;
+  justify-content: space-between;
 }
 
 .heading {
