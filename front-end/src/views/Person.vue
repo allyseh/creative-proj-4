@@ -169,6 +169,7 @@ export default {
 .display-line {
   display: flex;
   align-items: center;
+  martin-left: 20px;
 }
 
 .display-line p {
@@ -198,6 +199,10 @@ button {
 button {
   margin-top: 25px;
   margin-right: 10px;
+}
+
+.buttons {
+  margin-left: 20px;
 }
 
 .add {
