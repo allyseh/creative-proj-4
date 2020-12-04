@@ -149,6 +149,7 @@ export default {
 <style scoped>
 .my-people {
   font-size: 32px;
+  margin-bottom: 30px;
 }
 
 .display {
@@ -157,6 +158,7 @@ export default {
 
 .display h2 {
   font-size: 28px;
+  margin-bottom: 0;
 }
 
 .display h3 {
@@ -169,8 +171,7 @@ export default {
 }
 
 .display-line p {
-  margin-left: 10px;
-  margin-right: 30px;
+  margin: 20px 30px 0px 10px;
 }
 
 .heading {
@@ -191,6 +192,11 @@ select,
 button {
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
+}
+
+button {
+  margin-top: 25px;
+  margin-right: 10px;
 }
 
 .add {
