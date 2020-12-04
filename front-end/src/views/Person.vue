@@ -249,7 +249,7 @@ button {
 }
 
 .form-line {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   margin-left: 20px;
 }
 
