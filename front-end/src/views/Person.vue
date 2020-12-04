@@ -43,6 +43,33 @@
       
   </div>
   
+  <div class="heading">
+    <h2>Add an Item</h2>
+  </div>
+  
+  <div class="add">
+  
+    <div class="form">
+    
+      <input v-model="name" placeholder="Name">
+      <p></p>
+      <input v-model="gender" placeholder="Gender">
+      <p></p>
+      <input v-model="age" placeholder="Age">
+      <p></p>
+      <input v-model="relation" placeholder="Relation">
+      <p></p>
+      <textarea v-model="likes" placeholder="Likes">
+      <p></p>
+      <button @click="addPerson">Add</button>
+      
+    </div>
+    
+  </div>
+  
+</div>
+</template>
+  
 </div>
 
 </template>
