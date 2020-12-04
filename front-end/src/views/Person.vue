@@ -1,7 +1,7 @@
 <template>
 
 <div class="people">
-  <h1>My People</h1>
+  <h1 class="header">My People</h1>
   <div class="display-person" v-for="person in persons" :key="person.id"> 
     
     <div class="display" v-if="!person.editDisplay">   
@@ -13,8 +13,6 @@
         <p> {{person.age}} </p>
         <h3> Relation: </h3>
         <p> {{person.relation}} </p>
-        <h3> Bool: </h3>
-        <p> {{person.editDisplay}} </p>
       </div>
       <div class="display-line">
         <h3> Likes: </h3>
@@ -117,7 +115,6 @@ export default {
       }
     },
     async toggleEdit(person) {
-      console.log("before: " + person.editDisplay);
       await axios.put("/api/persons/" + person._id, {
           name: person.name,
           gender: person.gender,
@@ -126,8 +123,6 @@ export default {
           likes: person.likes,
           editDisplay: true,
       });
-      console.log("after: " + person.editDisplay);
-      //if (person.editDisplay) 
       this.editing = person;
       this.getPersons();
     },
@@ -152,9 +147,20 @@ export default {
 </script>
 
 <style scoped>
-.image h2 {
-  font-style: italic;
-  font-size: 1em;
+.header h1 {
+  font-size: 48px;
+}
+
+.display h2 {
+  font-size: 36px;
+}
+
+.display h3 {
+  font-size: 28px;
+}
+
+.display-line {
+  display: flex;
 }
 
 .heading {
