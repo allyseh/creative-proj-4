@@ -241,7 +241,7 @@ button {
 
 .add h2 {
   font-size: 22px;
-  margin: 45px 0px 10px 8px;
+  margin: 45px 0px 25px 8px;
 }
 
 .form {
@@ -258,7 +258,7 @@ button {
 }
 
 .form button {
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 20px;
   background-color: #FCF97F;
 }
