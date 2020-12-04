@@ -5,6 +5,8 @@
   <h1>My People</h1>
   <div class="display-person" v-for="person in persons" :key="person.id"> 
   
+    <div class="display">
+    
       <h2>{{person.name}}</h2>
       <div class="display-line">
         <h3> Gender: </h3> 
@@ -24,6 +26,20 @@
         <button @click="toggleEdit(person)">Edit</button>
         <button @click="deletePerson(person)">Remove</button>
       </div>
+      
+    </div>
+      
+    <div class="edit" v-else>
+
+      <input v-model="editing.name">
+      <p></p>
+      <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
+      <p></p>
+      <textarea v-model="editing.likes">
+      <p></p>
+      <button @click="editPerson(person)">Done</button>
+
+    </div>
       
   </div>
   
