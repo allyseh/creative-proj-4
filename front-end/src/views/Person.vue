@@ -114,7 +114,7 @@ export default {
         console.log(error);
       }
     },
-    toggleEdit(person) {
+    async toggleEdit(person) {
       console.log("before: " + person.editDisplay);
       await axios.put("/api/persons/" + person._id, {
           editDisplay: !person.editDisplay;
