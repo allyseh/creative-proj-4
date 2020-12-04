@@ -35,13 +35,11 @@
       <button @click="editPerson(person)">Done</button>
     </div>
   </div>
-  
-  <div class="heading">
-    <h2>Add an Item</h2>
-  </div>
+ 
   <div class="add">
+    <hr>
+    <h2>Add an Item</h2>
     <div class="form">
-      <hr>
       <input v-model="name" placeholder="Name">
       <p></p>
       <input v-model="gender" placeholder="Gender">
@@ -195,8 +193,11 @@ button {
   font-size: 1em;
 }
 
+.add {
+  margin-left: 20px;
+}
+
 .form {
   margin-right: 50px;
-  margin-left: 20px;
 }
 </style>
