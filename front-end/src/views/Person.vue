@@ -20,8 +20,8 @@
         <p> {{person.likes}} </p>
       </div>
       <div class="buttons">
-        <button @click="toggleEdit(person)">Edit</button>
-        <button @click="deletePerson(person)">Remove</button>
+        <button @click="toggleEdit(person)" class="editB">Edit</button>
+        <button @click="deletePerson(person)" class="removeB">Remove</button>
       </div>
     </div>
     
@@ -152,6 +152,10 @@ export default {
   margin-bottom: 40px;
 }
 
+hr {
+  color: #03722D;
+}
+
 .display {
   margin-left: 20px;
   margin-top: 10px;
@@ -159,7 +163,7 @@ export default {
 
 .display h2 {
   font-size: 28px;
-  margin-bottom: 12;
+  margin-bottom: 10;
   margin-left: 8px;
 }
 
@@ -213,9 +217,17 @@ button {
 }
 
 .buttons {
-  margin-left: 20px;
+  margin-left: 150px;
   margin-bottom: 10px;
-  text-size: 14px;
+  text-size: 6px;
+}
+
+.editB {
+  color: #72FBA6;
+}
+
+.removeB {
+  color: #F8463E;
 }
 
 .add {
