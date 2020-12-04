@@ -147,7 +147,7 @@ export default {
 </script>
 
 <style scoped>
-.my-people h1 {
+.my-people {
   font-size: 36px;
 }
 
@@ -162,7 +162,11 @@ export default {
 .display-line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.display-line p {
+  margin-left: 10px;
+  margin-right: 30px;
 }
 
 .heading {
