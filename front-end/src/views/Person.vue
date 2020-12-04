@@ -4,7 +4,7 @@
   <h1>My People</h1>
   <div class="display-person" v-for="person in persons" :key="person.id"> 
     
-    <div class="display" v-if="!person.editDisplay">   
+    <div class="display" v-if="person.editDisplay">   
       <h2>{{person.name}}</h2>
       <div class="display-line">
         <h3> Gender: </h3> 
