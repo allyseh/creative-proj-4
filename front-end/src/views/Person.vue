@@ -6,8 +6,20 @@
   <div class="display-person" v-for="person in persons" :key="person.id"> 
   
       <h2>{{person.name}}</h2>
-      <p><h3>Gender:</h3> {{person.gender}} <h3>Age:</h3> {{person.age}} <h3>Relation:</h3> {{person.relation}} </p>
-      <p><h3>Likes:</h3> {{person.likes}} </p>
+      <div class="display-line">
+        <h3> Gender: </h3> 
+        <p> {{person.gender}} </p>
+        <h3> Age: </h3>
+        <p> {{person.age}} </p>
+        <h3> Relation: </h3>
+        <p> {{person.relation}} </p>
+      </div>
+      
+      <div class="display-line">
+        <h3> Likes: </h3>
+        <p> {{person.likes}} </p>
+      </div>
+      
       <div class="buttons">
         <button @click="toggleEdit(person)">Edit</button>
         <button @click="deletePerson(person)">Remove</button>
