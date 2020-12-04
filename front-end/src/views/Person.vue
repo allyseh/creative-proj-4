@@ -142,7 +142,7 @@ export default {
 
 <style scoped>
 .people {
-  font-family: Harrington;
+  font-family: 'Montserrat', sans-serif;
 }
 .my-people {
   font-size: 32px;
