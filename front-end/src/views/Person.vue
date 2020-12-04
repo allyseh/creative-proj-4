@@ -127,9 +127,9 @@ export default {
           editDisplay: true,
       });
       console.log("after: " + person.editDisplay);
-      if (person.editDisplay) 
-        this.editing = person;
-      //this.getPersons();
+      //if (person.editDisplay) 
+      this.editing = person;
+      this.getPersons();
     },
     async editPerson(person) {
       try {
