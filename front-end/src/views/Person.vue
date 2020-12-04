@@ -153,7 +153,7 @@ export default {
 }
 
 hr {
-  border: 1px solid #03722D;
+  border: 1px solid #6BAC6A;
 }
 
 .display {
@@ -229,7 +229,7 @@ button {
 }
 
 .removeB {
-  background-color: #F8463E;
+  background-color: #FC8062;
 }
 
 .add {
