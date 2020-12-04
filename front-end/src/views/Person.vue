@@ -59,7 +59,7 @@
       <p></p>
       <input v-model="relation" placeholder="Relation">
       <p></p>
-      <textarea v-model="likes" placeholder="Likes">
+      <textarea v-model="likes" placeholder="Likes"/>
       <p></p>
       <button @click="addPerson">Add</button>
       
