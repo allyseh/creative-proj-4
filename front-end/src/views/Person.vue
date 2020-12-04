@@ -165,6 +165,7 @@ export default {
 
 .display h3 {
   font-size: 18px;
+  margin-bottom: 12px;
 }
 
 .display-line {
@@ -176,14 +177,14 @@ export default {
 }
 
 .display-line p {
-  margin: 0px 35px 0px 15px;
+  margin: 0px 30px 0px 10px;
 }
 
 .display-line h3, p {
   margin-top: 0px;
   margin-bottom: 0px;
   padding-top: 0px;
-  padding-bottom: 0px;
+  padding-bottom: 10px;
 }
 
 .heading {
