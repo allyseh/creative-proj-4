@@ -114,6 +114,26 @@ export default {
         console.log(error);
       }
     },
+    toggleEdit(person) {
+      person.editDisplay = !person.editDisplay;
+      if (person.editDisplay) 
+        editing = person;
+    }
+    async editPerson(person) {
+      try {
+        await axios.put("/api/persons/" + person._id, {
+          name: this.editing.name,
+          gender: this.editing.gender,
+          age: this.editing.age,
+          relation: this.editing.relation,
+          likes: this.editing.likes,
+        });
+        this.getPersons();
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 }
 </script>
