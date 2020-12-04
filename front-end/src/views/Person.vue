@@ -154,7 +154,7 @@ export default {
 
 .display {
   margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .display h2 {
@@ -171,6 +171,7 @@ export default {
   align-items: center;
   margin-left: 20px;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .display-line p {
@@ -198,7 +199,7 @@ button {
 }
 
 button {
-  margin-top: 25px;
+  margin-top: 5px;
   margin-right: 10px;
 }
 
