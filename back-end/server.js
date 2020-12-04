@@ -112,6 +112,7 @@ app.delete('/api/persons/:id', async (req, res) => {
 //trigged by clicking 'Done'
 app.put('/api/persons/:id', async (req, res) => {
   try {
+    console.log("first");
     let person = await Person.findOne({
       _id: req.params.id
     });
@@ -133,10 +134,16 @@ app.put('/api/persons/:id', async (req, res) => {
 //trigged by clicking 'Edit'
 app.put('/api/persons/:id', async (req, res) => {
   try {
+    console.log("second");
     let person = await Person.findOne({
       _id: req.params.id
     });
     person.editDisplay = req.body.editDisplay;
+    person.name = person.name;
+    person.gender = person.gender;
+    person.age = person.age;
+    person.relation = person.relation;
+    person.likes = person.likes;
     await person.save();
     res.send(person);
   } 
