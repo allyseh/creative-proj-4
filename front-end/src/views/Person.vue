@@ -72,7 +72,33 @@ export default {
       editing: null,
     }
   },
-  
+  created() {
+    this.getPersons();
+  },
+  methods: {
+    async addPerson() {
+      try {
+        await axios.post('/api/persons', {
+          name: this.name,
+          gender: this.gender,
+          age: this.age,
+          relation: this.relation,
+          likes: this.likes,
+          editDisplay: "false",
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getPersons() {
+      try {
+        let response = await axios.get("/api/persons");
+        this.persons = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
 }
 </script>
 
