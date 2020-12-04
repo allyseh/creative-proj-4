@@ -1,7 +1,7 @@
 <template>
 
 <div class="people">
-  <h1 class="header">My People</h1>
+  <h1 class="my-people">My People</h1>
   <div class="display-person" v-for="person in persons" :key="person.id"> 
     
     <div class="display" v-if="!person.editDisplay">   
@@ -147,20 +147,23 @@ export default {
 </script>
 
 <style scoped>
-.header h1 {
-  font-size: 48px;
-}
-
-.display h2 {
+.my-people h1 {
   font-size: 36px;
 }
 
-.display h3 {
+.display h2 {
   font-size: 28px;
+}
+
+.display h3 {
+  font-size: 18px;
 }
 
 .display-line {
   display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 20px;
 }
 
 .heading {
