@@ -95,7 +95,7 @@ export default {
           likes: this.likes,
           editDisplay: false,
         });
-        getPersons();
+        this.getPersons();
       } catch (error) {
         console.log(error);
       }
