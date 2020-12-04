@@ -97,5 +97,17 @@ app.get('/api/persons', async (req, res) => {
   }
 });
 
+app.delete('/api/persons/:id', async (req, res) => {
+  try {
+    await Person.deleteOne({
+      _id: req.params.id
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
 
 app.listen(3002, () => console.log('Server listening on port 3002'));
