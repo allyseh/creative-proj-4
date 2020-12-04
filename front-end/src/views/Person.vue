@@ -122,7 +122,7 @@ export default {
           age: person.age,
           relation: person.relation,
           likes: person.likes,
-          editDisplay: !person.editingDisplay,
+          editDisplay: !person.editDisplay,
       });
       console.log("after: " + person.editDisplay);
       if (person.editDisplay) 
