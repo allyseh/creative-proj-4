@@ -76,6 +76,15 @@ export default {
     this.getPersons();
   },
   methods: {
+    async getPersons() {
+      try {
+        let response = await axios.get("/api/persons");
+        this.persons = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async addPerson() {
       try {
         await axios.post('/api/persons', {
@@ -87,15 +96,6 @@ export default {
           editDisplay: false,
         });
         getPersons();
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    async getPersons() {
-      try {
-        let response = await axios.get("/api/persons");
-        this.persons = response.data;
-        return true;
       } catch (error) {
         console.log(error);
       }
