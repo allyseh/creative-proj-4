@@ -13,7 +13,7 @@
       </div>
       <div class="display-line">
         <h3> Price: </h3>
-        <p> $ {{gift.price}} </p>
+        <p> ${{gift.price}} </p>
       </div>
       <div class="buttons">
         <button @click="toggleEdit(gift)" class="editB">Edit</button>
