@@ -1,12 +1,10 @@
 <template>
 
 <div class="people">
-
   <h1>My People</h1>
   <div class="display-person" v-for="person in persons" :key="person.id"> 
-  
-    <div class="display" v-if="!person.editDisplay">
     
+    <div class="display" v-if="!person.editDisplay">   
       <h2>{{person.name}}</h2>
       <div class="display-line">
         <h3> Gender: </h3> 
@@ -16,21 +14,17 @@
         <h3> Relation: </h3>
         <p> {{person.relation}} </p>
       </div>
-      
       <div class="display-line">
         <h3> Likes: </h3>
         <p> {{person.likes}} </p>
       </div>
-      
       <div class="buttons">
         <button @click="toggleEdit(person)">Edit</button>
         <button @click="deletePerson(person)">Remove</button>
       </div>
-      
     </div>
-      
+    
     <div class="edit" v-else>
-
       <input v-model="editing.name">
       <p></p>
       <input v-model="editing.gender"> <input v-model="editing.age"> <input v-model="editing.relation">
@@ -38,19 +32,14 @@
       <textarea v-model="editing.likes"/>
       <p></p>
       <button @click="editPerson(person)">Done</button>
-
     </div>
-      
   </div>
   
   <div class="heading">
     <h2>Add an Item</h2>
   </div>
-  
   <div class="add">
-  
     <div class="form">
-    
       <input v-model="name" placeholder="Name">
       <p></p>
       <input v-model="gender" placeholder="Gender">
@@ -62,21 +51,25 @@
       <textarea v-model="likes" placeholder="Likes"/>
       <p></p>
       <button @click="addPerson">Add</button>
-      
     </div>
-    
   </div>
-  
 </div>
+
 </template>
 
 <script>
-
+import axios from 'axios';
 export default {
   name: 'Person',
   data() {
     return {
-      
+      name: "",
+      gender: "",
+      age: null,
+      relation: "",
+      likes: "",
+      persons: [],
+      editing: null,
     }
   },
   
