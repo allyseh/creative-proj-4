@@ -230,10 +230,10 @@ hr {
   align-items: center;
 }
 .entry-display hr {
-  border: 1px solid #6BB462;
+  border: .5px dotted #6BB462;
   background-color: #6BB462;
   flex-grow: 1;
-  height: 1px;
+  height: .5px;
   width: 80px;
 }
 .receiver, .gifts {
@@ -305,10 +305,18 @@ button {
 }
 .add {
   margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .add h2 {
   font-size: 22px;
   margin: 45px 0px 25px 8px;
+}
+.add-entry {
+  display: flex;
+  justify-content: center;
 }
 .form {
   margin-right: 50px;
