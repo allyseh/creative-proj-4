@@ -44,12 +44,12 @@
       <hr>
       <div class="edit-entry">
         <input v-model="findName" placeholder="Receiver">
-        <div class="RecSuggestions" v-if="recSuggestions.length > 0">
+        <div class="suggestions" v-if="recSuggestions.length > 0">
           <div class="suggestion" v-for="s in recSuggestions" :key="s.id" @click="selectRec(s)">{{s.name}}
           </div>
         </div>
         <input v-model="findTitle" placeholder="Gift">
-        <div class="GiftSuggestions" v-if="giftSuggestions.length > 0">
+        <div class="suggestions" v-if="giftSuggestions.length > 0">
           <div class="suggestion" v-for="s in giftSuggestions" :key="s.id" @click="selectGift(s)">{{s.title}}
           </div>
         </div>
@@ -310,7 +310,7 @@ button {
   font-size: 22px;
   margin: 45px 0px 25px 445px;
 }
-.add-entry {
+.add-entry, .edit {
   display: flex;
   justify-content: space-between;
   margin-left: 110px;
@@ -328,7 +328,7 @@ button {
 }
 .add button {
   margin-top: 25px;
-  margin-left: 485px;
+  margin-left: 505px;
   background-color: #FCF97F;
 }
 
