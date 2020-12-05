@@ -21,7 +21,7 @@
             <p> {{entry.receiver.likes}} </p>
           </div>
         </div>
-        <vr>
+        <hr>
         <div class="gifts">
           <h2> {{entry.gift.title}} </h2> 
           <div class="display-line">
@@ -212,6 +212,7 @@ export default {
 }
 hr {
   border: 1px solid #FDEB88;
+  flex-grow: 1;
 }
 .display {
   margin-left: 20px;
