@@ -313,8 +313,8 @@ button {
 .add-entry {
   display: flex;
   justify-content: space-between;
-  margin-left: 130px;
-  margin-right: 130px;
+  margin-left: 110px;
+  margin-right: 110px;
 }
 .add {
   margin-right: 50px;
