@@ -310,7 +310,7 @@ button {
   font-size: 22px;
   margin: 45px 0px 25px 445px;
 }
-.add-entry, .edit {
+.add-entry, .edit-entry {
   display: flex;
   justify-content: space-between;
   margin-left: 110px;
@@ -328,7 +328,7 @@ button {
 }
 .add button {
   margin-top: 25px;
-  margin-left: 505px;
+  margin-left: 500px;
   background-color: #FCF97F;
 }
 
