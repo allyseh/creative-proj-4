@@ -7,11 +7,29 @@
       <hr>
       <div class="receiver">
         <h3> {{entry.receiver.name}} </h3> 
-        <button @click="toggleRView(entry.receiver)" class="veiwR">View Details</button>
+        <div class="display-line">
+          <h3> Gender: </h3> 
+          <p> {{entry.receiver.gender}} </p>
+          <h3> Age: </h3>
+          <p> {{entry.receiver.age}} </p>
+          <h3> Relation: </h3>
+          <p> {{entry.receiver.relation}} </p>
+        </div>
+        <div class="display-line">
+          <h3> Likes: </h3>
+          <p> {{entry.receiver.likes}} </p>
+        </div>
       </div>
       <div class="gifts">
         <h3> {{entry.gift.title}} </h3> 
-        <button @click="toggleGView(entry.gift)" class="veiwG">View Details</button>
+        <div class="display-line">
+          <h3> Description: </h3> 
+          <p> {{entry.gift.desc}} </p>
+        </div>
+        <div class="display-line">
+          <h3> Price: </h3>
+          <p> ${{entry.gift.price}} </p>
+        </div>
       </div>
       <div class="buttons">
         <button @click="toggleEdit(entry)" class="editB">Edit</button>
