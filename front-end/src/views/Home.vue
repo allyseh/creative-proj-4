@@ -305,10 +305,6 @@ button {
 }
 .add {
   margin-left: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 }
 .add h2 {
   font-size: 22px;
@@ -318,17 +314,17 @@ button {
   display: flex;
   justify-content: center;
 }
-.form {
+.add {
   margin-right: 50px;
 }
 .form-line {
   margin-bottom: 20px;
   margin-left: 20px;
 }
-.form input {
+.add input {
   margin-right: 10px;
 }
-.form button {
+.add button {
   margin-top: 10px;
   margin-left: 20px;
   background-color: #FCF97F;
