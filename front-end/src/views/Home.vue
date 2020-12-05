@@ -225,6 +225,7 @@ hr {
 }
 .entry-display {
   display: flex;
+  justify-content: center;
 }
 .receiver, .gifts {
   display: flex;
@@ -237,7 +238,7 @@ hr {
   margin-left: 8px;
 }
 .display h3 {
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 12px;
 }
 .display-line {
@@ -249,7 +250,7 @@ hr {
 }
 .display-line p {
   margin: 0px 30px 0px 10px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .display-line h3, p {
   margin-top: 0px;
