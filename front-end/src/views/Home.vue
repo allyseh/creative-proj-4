@@ -231,9 +231,10 @@ hr {
 }
 .entry-display hr {
   border: 1px solid #6BB462;
+  background-color: #6BB462;
   flex-grow: 1;
   height: 1px;
-  width: 50px;
+  width: 80px;
 }
 .receiver, .gifts {
   display: flex;
@@ -292,7 +293,7 @@ button {
   color: #1C454F;
 }
 .buttons {
-  margin-left: 150px;
+  margin-left: 450px;
   margin-bottom: 10px;
   
 }
