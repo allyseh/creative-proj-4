@@ -1,8 +1,7 @@
 <template>
-
 <div class="list">
   <h1 class="my-list">My List</h1>
-  <div class="display-list" v-for="entry in entryList" :key="entry.id"> 
+  <div class="display-list" v-for="entry in entries" :key="entry.id"> 
     
     <div class="display" v-if="!entry.editDisplay">  
       <hr>
@@ -16,7 +15,7 @@
       </div>
       <div class="buttons">
         <button @click="toggleEdit(entry)" class="editB">Edit</button>
-        <button @click="deleteGift(entry)" class="removeB">Remove</button>
+        <button @click="deleteEntry(entry)" class="removeB">Remove</button>
       </div>
     </div>
     
@@ -56,79 +55,75 @@
     <button @click="addEntry">Add</button>
   </div>
 </div>
-
 </template>
 
 <script>
 import axios from 'axios';
 export default {
-  name: 'Gift',
+  name: 'Home',
   data() {
     return {
-      title: "",
-      desc: "",
-      price: null,
-      gifts: [],
+      receiver: null,
+      gift: null,
+      entries: [],
       editing: null,
+      selectedRec: null,
+      selectedGift: null,
     }
   },
   created() {
-    this.getGifts();
+    this.getEntries();
   },
   methods: {
-    async getGifts() {
+    async getEntries() {
       try {
-        let response = await axios.get("/api/gifts");
-        this.gifts = response.data;
+        let response = await axios.get("/api/entries");
+        this.entries = response.data;
         return true;
       } catch (error) {
         console.log(error);
       }
     },
-    async addGift() {
+    async addEntry() {
       try {
-        await axios.post('/api/gifts', {
-          title: this.title,
-          desc: this.desc,
-          price: this.price,
+        await axios.post('/api/entries', {
+          receiver: this.selectedRec,
+          gift: thi.selectedGift,
           editDisplay: false,
         });
-        this.title = "";
-        this.desc = "";
-        this.price = "";
-        this.getGifts();
+        this.addRec = null;
+        this.addGift = null;
+        this.getEntries();
       } catch (error) {
         console.log(error);
       }
     },
-    async deleteGift(gift) {
+    async deleteEntry(entry) {
       try {
-        await axios.delete("/api/gifts/" + gift._id);
-        this.getGifts();
+        await axios.delete("/api/entries/" + entry._id);
+        this.getEntries();
         return true;
       } catch (error) {
         console.log(error);
       }
     },
-    async toggleEdit(gift) {
-      await axios.put("/api/gifts/" + gift._id, {
-          title: gift.title,
-          desc: gift.desc,
-          price: gift.price,
+    async toggleEdit(entry) {
+      await axios.put("/api/entries/" + entry._id, {
+          receiver: entry.receiver,
+          gift: entry.gift,
           editDisplay: true,
       });
-      this.editing = gift;
-      this.getGifts();
+      this.editing = entry;
+      this.getEntries();
     },
-    async editGift(gift) {
+    async editEntry(entry) {
       try {
-        await axios.put("/api/gifts/" + gift._id, {
-          title: this.editing.title,
-          desc: this.editing.desc,
-          price: this.editing.price,
+        await axios.put("/api/entries/" + entry._id, {
+          receiver: this.editing.receiver,
+          gift: this.editing.gift,
           editDisplay: false,
         });
-        this.getGifts();
+        this.getEntries();
         return true;
       } catch (error) {
         console.log(error);
