@@ -331,6 +331,11 @@ button {
   margin-left: 500px;
   background-color: #FCF97F;
 }
+.edit button {
+  margin-top: 25px;
+  margin-left: 500px;
+  background-color: #6BAC6A;
+}
 
 /* Suggestions */
 .suggestions {
