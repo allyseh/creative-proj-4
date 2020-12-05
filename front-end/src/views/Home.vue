@@ -210,7 +210,7 @@ export default {
   margin-bottom: 40px;
 }
 hr {
-  border: 1px solid #FCDC2A;
+  border: 1px solid #FDEB88;
 }
 .display {
   margin-left: 20px;
@@ -228,7 +228,7 @@ hr {
 }
 .receiver, .gifts {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 .display h2 {
