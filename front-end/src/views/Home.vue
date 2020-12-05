@@ -5,30 +5,32 @@
     
     <div class="display" v-if="!entry.editDisplay">  
       <hr>
-      <div class="receiver">
-        <h3> {{entry.receiver.name}} </h3> 
-        <div class="display-line">
-          <h3> Gender: </h3> 
-          <p> {{entry.receiver.gender}} </p>
-          <h3> Age: </h3>
-          <p> {{entry.receiver.age}} </p>
-          <h3> Relation: </h3>
-          <p> {{entry.receiver.relation}} </p>
+      <div class="entry-display">
+        <div class="receiver">
+          <h3> {{entry.receiver.name}} </h3> 
+          <div class="display-line">
+            <h3> Gender: </h3> 
+            <p> {{entry.receiver.gender}} </p>
+            <h3> Age: </h3>
+            <p> {{entry.receiver.age}} </p>
+            <h3> Relation: </h3>
+            <p> {{entry.receiver.relation}} </p>
+          </div>
+          <div class="display-line">
+            <h3> Likes: </h3>
+            <p> {{entry.receiver.likes}} </p>
+          </div>
         </div>
-        <div class="display-line">
-          <h3> Likes: </h3>
-          <p> {{entry.receiver.likes}} </p>
-        </div>
-      </div>
-      <div class="gifts">
-        <h3> {{entry.gift.title}} </h3> 
-        <div class="display-line">
-          <h3> Description: </h3> 
-          <p> {{entry.gift.desc}} </p>
-        </div>
-        <div class="display-line">
-          <h3> Price: </h3>
-          <p> ${{entry.gift.price}} </p>
+        <div class="gifts">
+          <h3> {{entry.gift.title}} </h3> 
+          <div class="display-line">
+            <h3> Description: </h3> 
+            <p> {{entry.gift.desc}} </p>
+          </div>
+          <div class="display-line">
+            <h3> Price: </h3>
+            <p> ${{entry.gift.price}} </p>
+          </div>
         </div>
       </div>
       <div class="buttons">
@@ -208,7 +210,7 @@ export default {
   margin-bottom: 40px;
 }
 hr {
-  border: 1px solid #FD7A73;
+  border: 1px solid #FCDC2A;
 }
 .display {
   margin-left: 20px;
@@ -221,13 +223,21 @@ hr {
 .edit-line {
   margin-left: 20px;
 }
+.entry-display {
+  display: flex;
+}
+.receiver, .gifts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .display h2 {
-  font-size: 22px;
+  font-size: 26px;
   margin-bottom: 10;
   margin-left: 8px;
 }
 .display h3 {
-  font-size: 18px;
+  font-size: 12px;
   margin-bottom: 12px;
 }
 .display-line {
