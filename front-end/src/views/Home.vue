@@ -22,12 +22,12 @@
     <div class="edit" v-else>
       <hr>
       <div class="edit-entry">
-        <input v-model="findName" placeholder=editing.receiver.name>
+        <input v-model="findName" placeholder=findRec.name>
         <div class="RecSuggestions" v-if="recSuggestions.length > 0">
           <div class="suggestion" v-for="s in recSuggestions" :key="s.id" @click="selectRec(s)">{{s.name}}
           </div>
         </div>
-        <input v-model="findTitle" placeholder=editing.receiver.gift>
+        <input v-model="findTitle" placeholder=findGift.gift>
         <div class="GiftSuggestions" v-if="giftSuggestions.length > 0">
           <div class="suggestion" v-for="s in giftSuggestions" :key="s.id" @click="selectGift(s)">{{s.title}}
           </div>
