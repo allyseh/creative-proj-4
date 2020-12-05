@@ -198,5 +198,63 @@ app.put('/api/gifts/:id', async (req, res) => {
   }
 });
 
+/* Entry api calls */
+
+// Create a new entry in the giftList
+app.post('/api/entries', async (req, res) => {
+  const entry = new Entry({
+    receiver: req.body.receiver,
+    gift: req.body.gift,
+    editDisplay: req.body.editDisplay,
+  });
+  try {
+    await entry.save();
+    res.send(entry);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+// Get a list of all of the people 
+app.get('/api/entries', async (req, res) => {
+  try {
+    let entries = await Entry.find();
+    res.send(entries);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+app.delete('/api/entries/:id', async (req, res) => {
+  try {
+    await Entry.deleteOne({
+      _id: req.params.id
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+app.put('/api/entries/:id', async (req, res) => {
+  try {
+    let entry = await Entry.findOne({
+      _id: req.params.id
+    });
+    entry.receiver = req.body.receiver;
+    entry.gift = req.body.gift;
+    entry.editDisplay = req.body.editDisplay;
+    await entry.save();
+    res.send(entry);
+  } 
+  catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
 
 app.listen(3002, () => console.log('Server listening on port 3002'));
