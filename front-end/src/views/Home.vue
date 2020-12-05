@@ -312,7 +312,7 @@ button {
 }
 .add-entry {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .add {
   margin-right: 50px;
