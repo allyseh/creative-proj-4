@@ -61,6 +61,9 @@ body {
 .pagelink {
   margin-top: 10px;
   margin-right: 20px;
+  color: #6BAC6A;
+  font-size: 24px;
+}
 }
 
 .content {
