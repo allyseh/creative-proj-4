@@ -308,13 +308,13 @@ button {
 }
 .add h2 {
   font-size: 22px;
-  margin: 45px 0px 25px 430px;
+  margin: 45px 0px 25px 445px;
 }
 .add-entry {
   display: flex;
   justify-content: space-between;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 130px;
+  margin-right: 130px;
 }
 .add {
   margin-right: 50px;
@@ -328,7 +328,7 @@ button {
 }
 .add button {
   margin-top: 10px;
-  margin-left: 470px;
+  margin-left: 485px;
   background-color: #FCF97F;
 }
 
