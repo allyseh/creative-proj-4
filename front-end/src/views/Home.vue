@@ -230,10 +230,10 @@ hr {
   align-items: center;
 }
 .entry-display hr {
-  border: 1px solid #FDEB88;
+  border: 1px solid #6BB462;
   flex-grow: 1;
   height: 1px;
-  width: 10px;
+  width: 50px;
 }
 .receiver, .gifts {
   display: flex;
