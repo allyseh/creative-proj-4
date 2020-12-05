@@ -1,85 +1,244 @@
 <template>
-<div class="home">
-  <section class="image-gallery">
-    <div class="image" v-for="item in items" :key="item.id">
-      <h2>{{item.title}}</h2>
-      <img :src="item.path" />
+
+<div class="list">
+  <h1 class="my-list">My List</h1>
+  <div class="display-list" v-for="entry in entryList" :key="entry.id"> 
+    
+    <div class="display" v-if="!entry.editDisplay">  
+      <hr>
+      <div class="receiver">
+        <h3> {{entry.receiver.name}} </h3> 
+        <button @click="toggleRView(entry.receiver)" class="veiwR">View Details</button>
+      </div>
+      <div class="gifts">
+        <h3> {{entry.gift.title}} </h3> 
+        <button @click="toggleGView(entry.gift)" class="veiwG">View Details</button>
+      </div>
+      <div class="buttons">
+        <button @click="toggleEdit(entry)" class="editB">Edit</button>
+        <button @click="deleteGift(entry)" class="removeB">Remove</button>
+      </div>
     </div>
-  </section>
+    
+    <div class="edit" v-else>
+      <hr>
+      <div class="edit-entry">
+        <input v-model="findRec" placeholder="editing.receiver.name">
+        <div class="RecSuggestions" v-if="recSuggestions.length > 0">
+          <div class="suggestion" v-for="s in recSuggestions" :key="s.id" @click="selectRec(s)">{{s.name}}
+          </div>
+        </div>
+        <input v-model="findGift" placeholder="editing.receiver.gift">
+        <div class="GiftSuggestions" v-if="giftSuggestions.length > 0">
+          <div class="suggestion" v-for="s in giftSuggestions" :key="s.id" @click="selectGift(s)">{{s.title}}
+          </div>
+        </div>
+      </div>
+      <button class="edit-line" @click="editEntry(entry)">Done</button>
+    </div>
+  </div>
+ 
+  <div class="add">
+    <hr>
+    <h2>Add An Entry</h2>
+    <div class="add-entry">
+      <input v-model="addRec" placeholder="Receiver">
+      <div class="RecSuggestions" v-if="recSuggestions.length > 0">
+        <div class="suggestion" v-for="s in recSuggestions" :key="s.id" @click="selectRec(s)">{{s.name}}
+        </div>
+      </div>
+      <input v-model="addGift" placeholder="Gift">
+      <div class="GiftSuggestions" v-if="giftSuggestions.length > 0">
+        <div class="suggestion" v-for="s in giftSuggestions" :key="s.id" @click="selectGift(s)">{{s.title}}
+        </div>
+      </div>
+    </div>
+    <button @click="addEntry">Add</button>
+  </div>
 </div>
+
 </template>
 
 <script>
-// @ is an alias to /src
 import axios from 'axios';
 export default {
-  name: 'Home',
+  name: 'Gift',
   data() {
     return {
-     items: [],
+      title: "",
+      desc: "",
+      price: null,
+      gifts: [],
+      editing: null,
     }
   },
   created() {
-    this.getItems();
+    this.getGifts();
   },
   methods: {
-    async getItems() {
+    async getGifts() {
       try {
-        let response = await axios.get("/api/items");
-        this.items = response.data;
+        let response = await axios.get("/api/gifts");
+        this.gifts = response.data;
         return true;
       } catch (error) {
         console.log(error);
       }
     },
-  }
+    async addGift() {
+      try {
+        await axios.post('/api/gifts', {
+          title: this.title,
+          desc: this.desc,
+          price: this.price,
+          editDisplay: false,
+        });
+        this.title = "";
+        this.desc = "";
+        this.price = "";
+        this.getGifts();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteGift(gift) {
+      try {
+        await axios.delete("/api/gifts/" + gift._id);
+        this.getGifts();
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async toggleEdit(gift) {
+      await axios.put("/api/gifts/" + gift._id, {
+          title: gift.title,
+          desc: gift.desc,
+          price: gift.price,
+          editDisplay: true,
+      });
+      this.editing = gift;
+      this.getGifts();
+    },
+    async editGift(gift) {
+      try {
+        await axios.put("/api/gifts/" + gift._id, {
+          title: this.editing.title,
+          desc: this.editing.desc,
+          price: this.editing.price,
+          editDisplay: false,
+        });
+        this.getGifts();
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 }
 </script>
 
 <style scoped>
-.image h2 {
-  font-style: italic;
+.people {
+  font-family: 'Montserrat', sans-serif;
 }
-
-/* Masonry */
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+.my-gifts {
+  font-size: 32px;
+  margin-bottom: 40px;
 }
-
-.image-gallery {
-  column-gap: 1.5em;
+hr {
+  border: 1px solid #FD7A73;
 }
-
-.image {
-  margin: 0 0 1.5em;
-  display: inline-block;
-  width: 100%;
+.display {
+  margin-left: 20px;
+  margin-top: 10px;
 }
-
-.image img {
-  width: 100%;
+.edit {
+  margin-left: 20px;
+  margin-top: 10px;
 }
-
-/* Masonry on large screens */
-@media only screen and (min-width: 1024px) {
-  .image-gallery {
-    column-count: 4;
-  }
+.edit-line {
+  margin-left: 20px;
 }
-
-/* Masonry on medium-sized screens */
-@media only screen and (max-width: 1023px) and (min-width: 768px) {
-  .image-gallery {
-    column-count: 3;
-  }
+.display h2 {
+  font-size: 22px;
+  margin-bottom: 10;
+  margin-left: 8px;
 }
-
-/* Masonry on small screens */
-@media only screen and (max-width: 767px) and (min-width: 540px) {
-  .image-gallery {
-    column-count: 2;
-  }
+.display h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.display-line {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 0px 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.display-line p {
+  margin: 0px 30px 0px 10px;
+}
+.display-line h3, p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+}
+.heading {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.heading h2 {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+/* Form */
+input,
+textarea,
+select,
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+button {
+  margin-top: 10px;
+  margin-right: 10px;
+  text-size: 12px;
+  color: #1C454F;
+}
+.buttons {
+  margin-left: 150px;
+  margin-bottom: 10px;
+  
+}
+.editB {
+  background-color: #72FBA6;
+}
+.removeB {
+  background-color: #FC8062;
+}
+.add {
+  margin-left: 20px;
+}
+.add h2 {
+  font-size: 22px;
+  margin: 45px 0px 25px 8px;
+}
+.form {
+  margin-right: 50px;
+}
+.form-line {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.form input {
+  margin-right: 10px;
+}
+.form button {
+  margin-top: 10px;
+  margin-left: 20px;
+  background-color: #FCF97F;
 }
 </style>
