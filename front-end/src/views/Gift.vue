@@ -207,6 +207,9 @@ button {
 .removeB {
   background-color: #FC8062;
 }
+.edit button {
+  background-color: #6BAC6A;
+}
 .add {
   margin-left: 20px;
 }
