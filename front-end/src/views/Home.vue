@@ -119,12 +119,12 @@ export default {
       }
     },
     selectRec(rec) {
-      this.findName = "rec.name";
       this.findRec = rec;
+      this.findName = "findRec.name";
     },
     selectGift(gift) {
-      this.findTitle = "gift.title";
       this.findGift = gift;
+      this.findTitle = "findGift.title";
     },
     async addEntry() {
       try {
@@ -133,8 +133,10 @@ export default {
           gift: this.findGift,
           editDisplay: false,
         });
-        this.findRec = "";
-        this.findGift = "";
+        this.findRec = null;
+        this.findGift = null;
+        this.findName = "";
+        this.findTitle = "";
         this.getEntries();
       } catch (error) {
         console.log(error);
