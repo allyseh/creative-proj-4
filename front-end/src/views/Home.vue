@@ -118,7 +118,7 @@ export default {
         this.entries = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async getPersons() {
@@ -127,7 +127,7 @@ export default {
         this.persons = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async getGifts() {
@@ -136,7 +136,7 @@ export default {
         this.gifts = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     selectRec(rec) {
@@ -160,7 +160,7 @@ export default {
         this.findTitle = "";
         this.getEntries();
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async deleteEntry(entry) {
@@ -169,7 +169,7 @@ export default {
         this.getEntries();
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async toggleEdit(entry) {
@@ -195,7 +195,7 @@ export default {
         this.getEntries();
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
   },
