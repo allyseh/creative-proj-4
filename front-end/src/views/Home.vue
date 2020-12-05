@@ -336,6 +336,7 @@ button {
 .suggestions {
   width: 200px;
   border: 1px solid #ccc;
+  margin-right: 25px;
 }
 .suggestion {
   min-height: 20px;
