@@ -227,12 +227,13 @@ hr {
 .entry-display {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .entry-display hr {
   border: 1px solid #FDEB88;
   flex-grow: 1;
   height: 1px;
-  width: 20px;
+  width: 10px;
 }
 .receiver, .gifts {
   display: flex;
