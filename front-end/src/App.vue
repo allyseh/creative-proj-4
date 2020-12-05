@@ -64,7 +64,6 @@ body {
   color: #6BAC6A;
   font-size: 24px;
 }
-}
 
 .content {
   padding: 20px 100px;
