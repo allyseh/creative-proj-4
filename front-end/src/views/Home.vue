@@ -7,7 +7,7 @@
       <hr>
       <div class="entry-display">
         <div class="receiver">
-          <h3> {{entry.receiver.name}} </h3> 
+          <h2> {{entry.receiver.name}} </h2> 
           <div class="display-line">
             <h3> Gender: </h3> 
             <p> {{entry.receiver.gender}} </p>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="gifts">
-          <h3> {{entry.gift.title}} </h3> 
+          <h2> {{entry.gift.title}} </h2> 
           <div class="display-line">
             <h3> Description: </h3> 
             <p> {{entry.gift.desc}} </p>
@@ -228,8 +228,8 @@ hr {
 }
 .receiver, .gifts {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .display h2 {
   font-size: 26px;
@@ -249,6 +249,7 @@ hr {
 }
 .display-line p {
   margin: 0px 30px 0px 10px;
+  font-size: 11px;
 }
 .display-line h3, p {
   margin-top: 0px;
