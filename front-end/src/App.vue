@@ -9,10 +9,10 @@
         <img src="/gift-logo.png" width = 50%>
       </div>
     </router-link>
-    <router-link class="pagelink" to="/Person">
+    <router-link class="pagelink P" to="/Person">
       People
     </router-link>
-    <router-link class="pagelink" to="/Gift">
+    <router-link class="pagelink G" to="/Gift">
       Gifts
     </router-link>
   </div>
@@ -63,6 +63,14 @@ body {
   margin-right: 20px;
   color: #6BAC6A;
   font-size: 24px;
+}
+
+.P {
+  color: #128D03;
+}
+
+.G {
+  color: #B71815;
 }
 
 .content {
