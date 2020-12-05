@@ -278,4 +278,17 @@ button {
   margin-left: 20px;
   background-color: #FCF97F;
 }
+
+/* Suggestions */
+.suggestions {
+  width: 200px;
+  border: 1px solid #ccc;
+}
+.suggestion {
+  min-height: 20px;
+}
+.suggestion:hover {
+  background-color: #5BDEFF;
+  color: #fff;
+}
 </style>
