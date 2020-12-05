@@ -21,7 +21,7 @@
             <p> {{entry.receiver.likes}} </p>
           </div>
         </div>
-        <hr>
+        <vr>
         <div class="gifts">
           <h2> {{entry.gift.title}} </h2> 
           <div class="display-line">
