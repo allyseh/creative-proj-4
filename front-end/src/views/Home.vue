@@ -21,6 +21,7 @@
             <p> {{entry.receiver.likes}} </p>
           </div>
         </div>
+        <hr>
         <div class="gifts">
           <h2> {{entry.gift.title}} </h2> 
           <div class="display-line">
@@ -231,6 +232,8 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .display h2 {
   font-size: 26px;
