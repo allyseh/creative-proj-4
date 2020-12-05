@@ -63,12 +63,12 @@
     <h2>Add An Entry</h2>
     <div class="add-entry">
       <input v-model="findName" placeholder="Receiver">
-      <div class="RecSuggestions" v-if="recSuggestions.length > 0">
+      <div class="suggestions" v-if="recSuggestions.length > 0">
         <div class="suggestion" v-for="s in recSuggestions" :key="s.id" @click="selectRec(s)">{{s.name}}
         </div>
       </div>
       <input v-model="findTitle" placeholder="Gift">
-      <div class="GiftSuggestions" v-if="giftSuggestions.length > 0">
+      <div class="suggestions" v-if="giftSuggestions.length > 0">
         <div class="suggestion" v-for="s in giftSuggestions" :key="s.id" @click="selectGift(s)">{{s.title}}
         </div>
       </div>
@@ -308,11 +308,13 @@ button {
 }
 .add h2 {
   font-size: 22px;
-  margin: 45px 0px 25px 8px;
+  margin: 45px 0px 25px 430px;
 }
 .add-entry {
   display: flex;
   justify-content: space-between;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 .add {
   margin-right: 50px;
@@ -326,7 +328,7 @@ button {
 }
 .add button {
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 470px;
   background-color: #FCF97F;
 }
 
@@ -339,7 +341,7 @@ button {
   min-height: 20px;
 }
 .suggestion:hover {
-  background-color: #5BDEFF;
+  background-color: #6BB462;
   color: #fff;
 }
 </style>
