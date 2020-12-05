@@ -120,11 +120,11 @@ export default {
     },
     selectRec(rec) {
       this.findRec = rec;
-      this.findName = findRec.name;
+      this.findName = this.findRec.name;
     },
     selectGift(gift) {
       this.findGift = gift;
-      this.findTitle = findGift.title;
+      this.findTitle = this.findGift.title;
     },
     async addEntry() {
       try {
