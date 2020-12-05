@@ -47,20 +47,20 @@ const giftSchema = new mongoose.Schema({
   editDisplay: Boolean,
 });
 
-// Create a model for items in the museum.
+// Create a model for gifts
 const Gift = mongoose.model('Gift', giftSchema);
 
 // Create a scheme for list entries
 const entrySchema = new mongoose.Schema({
   receiver: personSchema,
-  gifts: [giftSchema],
+  gift: giftSchema,     //[giftSchema]
   editDisplay: Boolean,
 });
 
 // Create a model for list entries
 const Entry = mongoose.model('Entry', entrySchema);
 
-// Create a scheme for lists
+// Create a scheme for lists       --- no time to implement..
 const listSchema = new mongoose.Schema({
   label: String,
   giftList: [entrySchema],
