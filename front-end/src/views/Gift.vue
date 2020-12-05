@@ -70,7 +70,7 @@ export default {
         this.gifts = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async addGift() {
@@ -86,7 +86,7 @@ export default {
         this.price = "";
         this.getGifts();
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async deleteGift(gift) {
@@ -95,7 +95,7 @@ export default {
         this.getGifts();
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async toggleEdit(gift) {
@@ -119,7 +119,7 @@ export default {
         this.getGifts();
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
   },
