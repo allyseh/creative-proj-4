@@ -43,7 +43,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 100px 0px 100px;
+  padding: 10px 90px 0px 90px;
   background-color: #72FBA6;
   color: #1C454F;
 }
