@@ -339,6 +339,7 @@ button {
 }
 .suggestion {
   min-height: 20px;
+  margin-left: 20px;
 }
 .suggestion:hover {
   background-color: #6BB462;
