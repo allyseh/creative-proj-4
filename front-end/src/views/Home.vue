@@ -71,8 +71,8 @@ export default {
       editing: null,
       findRec: null,
       findGift: null,
-      findName = "",
-      findTitle = "",
+      findName: "",
+      findTitle: "",
     }
   },
   computed: {
