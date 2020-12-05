@@ -213,6 +213,8 @@ export default {
 hr {
   border: 1px solid #FDEB88;
   flex-grow: 1;
+  height: 1px;
+  width: 20px;
 }
 .display {
   margin-left: 20px;
