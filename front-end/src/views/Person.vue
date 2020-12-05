@@ -167,6 +167,10 @@ hr {
   margin-left: 20px;
 }
 
+.edit button {
+  background-color: #6BAC6A;
+}
+
 .display h2 {
   font-size: 28px;
   margin-bottom: 10;
