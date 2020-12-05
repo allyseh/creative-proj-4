@@ -22,12 +22,12 @@
     <div class="edit" v-else>
       <hr>
       <div class="edit-entry">
-        <input v-model="findRec" placeholder="editing.receiver.name">
+        <input v-model="findName" placeholder="editing.receiver.name">
         <div class="RecSuggestions" v-if="recSuggestions.length > 0">
           <div class="suggestion" v-for="s in recSuggestions" :key="s.id" @click="selectRec(s)">{{s.name}}
           </div>
         </div>
-        <input v-model="findGift" placeholder="editing.receiver.gift">
+        <input v-model="findTitle" placeholder="editing.receiver.gift">
         <div class="GiftSuggestions" v-if="giftSuggestions.length > 0">
           <div class="suggestion" v-for="s in giftSuggestions" :key="s.id" @click="selectGift(s)">{{s.title}}
           </div>
@@ -41,12 +41,12 @@
     <hr>
     <h2>Add An Entry</h2>
     <div class="add-entry">
-      <input v-model="addRec" placeholder="Receiver">
+      <input v-model="findName" placeholder="Receiver">
       <div class="RecSuggestions" v-if="recSuggestions.length > 0">
         <div class="suggestion" v-for="s in recSuggestions" :key="s.id" @click="selectRec(s)">{{s.name}}
         </div>
       </div>
-      <input v-model="addGift" placeholder="Gift">
+      <input v-model="findTitle" placeholder="Gift">
       <div class="GiftSuggestions" v-if="giftSuggestions.length > 0">
         <div class="suggestion" v-for="s in giftSuggestions" :key="s.id" @click="selectGift(s)">{{s.title}}
         </div>
@@ -66,13 +66,29 @@ export default {
       receiver: null,
       gift: null,
       entries: [],
+      persons: [],
+      gifts: [],
       editing: null,
-      selectedRec: null,
-      selectedGift: null,
+      findRec: null,
+      findGift: null,
+      findName = "",
+      findTitle = "",
     }
+  },
+  computed: {
+    recSuggestions() {
+      let receivers = this.persons.filter(person => person.name.toLowerCase().startsWith(this.findName.toLowerCase()));
+      return receivers.sort((a, b) => a.name > b.name);
+    },
+    giftSuggestions() {
+      let gifts = this.gifts.filter(gift => gift.title.toLowerCase().startsWith(this.findTitle.toLowerCase()));
+      return gifts.sort((a, b) => a.title > b.title);
+    },
   },
   created() {
     this.getEntries();
+    this.getPersons();
+    this.getGifts();
   },
   methods: {
     async getEntries() {
@@ -84,11 +100,37 @@ export default {
         console.log(error);
       }
     },
+    async getPersons() {
+      try {
+        let response = await axios.get("/api/persons");
+        this.persons = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getGifts() {
+      try {
+        let response = await axios.get("/api/gifts");
+        this.gifts = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    selectRec(rec) {
+      this.findName = "";
+      this.findRec = rec;
+    },
+    selectGift(gift) {
+      this.findTitle = "";
+      this.findGift = gift;
+    },
     async addEntry() {
       try {
         await axios.post('/api/entries', {
-          receiver: this.selectedRec,
-          gift: thi.selectedGift,
+          receiver: this.findRec,
+          gift: this.findGift,
           editDisplay: false,
         });
         this.addRec = null;
@@ -134,10 +176,10 @@ export default {
 </script>
 
 <style scoped>
-.people {
+.list {
   font-family: 'Montserrat', sans-serif;
 }
-.my-gifts {
+.my-list {
   font-size: 32px;
   margin-bottom: 40px;
 }
