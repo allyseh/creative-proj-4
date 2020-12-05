@@ -314,7 +314,7 @@ button {
   display: flex;
   justify-content: space-between;
   margin-left: 110px;
-  margin-right: 110px;
+  margin-right: 80px;
 }
 .add {
   margin-right: 50px;
@@ -327,7 +327,7 @@ button {
   margin-right: 10px;
 }
 .add button {
-  margin-top: 10px;
+  margin-top: 25px;
   margin-left: 485px;
   background-color: #FCF97F;
 }
