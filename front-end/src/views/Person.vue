@@ -76,7 +76,7 @@ export default {
         this.persons = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+       // console.log(error);
       }
     },
     async addPerson() {
@@ -96,7 +96,7 @@ export default {
         this.likes = "";
         this.getPersons();
       } catch (error) {
-        console.log(error);
+       // console.log(error);
       }
     },
     async deletePerson(person) {
@@ -105,7 +105,7 @@ export default {
         this.getPersons();
         return true;
       } catch (error) {
-        console.log(error);
+       // console.log(error);
       }
     },
     async toggleEdit(person) {
@@ -133,7 +133,7 @@ export default {
         this.getPersons();
         return true;
       } catch (error) {
-        console.log(error);
+       // console.log(error);
       }
     },
   },
